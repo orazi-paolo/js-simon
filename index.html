@@ -20,23 +20,24 @@
 <body>
     <div class="d-flex align-items-center justify-content-center vh-100 flex-column">
         <div id="countdown" class="h1"></div>
-        <p class="">Hai 30 secondi per memorizzare questi numeri</p>
-        <div class="d-flex gap-5 h1">
+        <p id="description">Hai 30 secondi per memorizzare questi numeri</p>
+        <div id="guessNumber" class="d-flex gap-5 h1">
             <div>16</div>
             <div>45</div>
             <div>53</div>
             <div>67</div>
             <div>91</div>
         </div>
-        <div class="mb-4 d-none">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
+        <div id="input-user" class="mb-4 d-none">
+            <input id="num1" type="number">
+            <input id="num2" type="number">
+            <input id="num3" type="number">
+            <input id="num4" type="number">
+            <input id="num5" type="number">
         </div>
         <button class="btn btn-success mb-4 d-none">Invia i numeri</button>
-        <p class="d-none">Ora inserisci i numeri non serve che siano in ordine valuterò quanti te ne sei ricordato/a</p>
+        <p id="valuation" class="d-none">Ora inserisci i numeri non serve che siano in ordine valuterò quanti te ne sei
+            ricordato/a</p>
     </div>
 
 </body>
