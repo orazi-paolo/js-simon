@@ -38,7 +38,31 @@ function countdown() {
 const countdownInterval = setInterval(countdown, 1000);
 
 // creo un array dei numeri scritti in pagina
-const guessNumberArray = [16, 45, 53, 67, 91];
+const guessNumberArray = [];
+
+// creo le variabili per la funzione
+const min = 1;
+const max = 100;
+const count = 5;
+// creo una funzione per generare i numeri casuali e inserirli nell array
+function generatedCasualNumber(min, max, count) {
+    while (guessNumberArray.length < count) {
+        const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+
+        if (!guessNumberArray.includes(randomNumber)) {
+            guessNumberArray.push(randomNumber);
+        }
+    }
+}
+// inserisco i numeri generati nell'array
+generatedCasualNumber(min, max, count);
+// per ogni numero inserisco un div
+for (let i = 0; i < guessNumberArray.length; i++) {
+    const num = guessNumberArray[i];
+    const numDiv = document.createElement('div');
+    numDiv.innerText = num;
+    guessNumber.appendChild(numDiv);
+}
 
 // creo una funzione per la verifica dei numeri scritti dall'utente
 function verifyNumber() {
