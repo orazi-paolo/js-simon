@@ -10,7 +10,7 @@ const esactNumber = document.getElementById('esactNumber');
 
 
 // Creo una variabile per il tempo rimanente
-let timeLeft = 2;
+let timeLeft = 30;
 
 // Creo la funzione per il countdown
 function countdown() {
