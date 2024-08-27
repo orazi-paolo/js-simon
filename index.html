@@ -18,16 +18,25 @@
 </head>
 
 <body>
+    <!-- una specie di container -->
     <div class="d-flex align-items-center justify-content-center vh-100 flex-column">
+        <!-- countdown -->
         <div id="countdown" class="h1"></div>
+        <!-- descrizione su cosa fare -->
         <p id="description">Hai 30 secondi per memorizzare questi numeri</p>
+        <!-- numeri da memorizzare -->
         <div id="guessNumber" class="d-flex gap-5 h1">
         </div>
+        <!-- input dove far inserire all'utente un numero -->
         <div id="input-user" class="mb-4 d-none"></div>
+        <!-- bottone per inviare i numeri -->
         <button id="button" type="button" class="btn btn-success mb-4 d-none">Invia i numeri</button>
         <p id="valuation" class="d-none">Ora inserisci i numeri non serve che siano in ordine valuterò quanti te ne sei
             ricordato/a</p>
+        <!-- risultato -->
         <div id="result" class="h1 mb-4"></div>
+        <div id="esactNumber" class="h4 d-none"></div>
+        <!-- per rigiocare -->
         <button id="buttonReplay" type="button" class="btn btn-primary d-none">Rigioca</button>
     </div>
 

@@ -6,6 +6,7 @@ const description = document.getElementById('description');
 const buttonSendNumber = document.getElementById('button');
 const valuation = document.getElementById('valuation');
 const buttonReplay = document.getElementById('buttonReplay')
+const esactNumber = document.getElementById('esactNumber');
 
 
 // Creo una variabile per il tempo rimanente
@@ -114,6 +115,8 @@ buttonSendNumber.addEventListener('click', function () {
         inputUser.classList.add('d-none');
         valuation.classList.add('d-none');
         buttonReplay.classList.remove('d-none');
+        esactNumber.classList.remove('d-none');
+        esactNumber.innerText = `I numeri giusti erano ${guessNumberArray}`;
     }
 });
 
