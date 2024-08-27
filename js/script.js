@@ -3,7 +3,7 @@ const countdownField = document.getElementById('countdown');
 const guessNumber = document.getElementById('guessNumber');
 const inputUser = document.getElementById('input-user');
 const description = document.getElementById('description');
-const buttonSendNumber = document.querySelector('button');
+const buttonSendNumber = document.getElementById('button');
 const valuation = document.getElementById('valuation');
 
 
@@ -48,17 +48,27 @@ function verifyNumber() {
         parseInt(document.getElementById('num4').value),
         parseInt(document.getElementById('num5').value)
     ]
-    // creo una variabile per vedere se sono uguali i numeri
-    const isSame = false;
+    // creo una variabile per vederi quanti numeri corrispondono
+    let sameNumberCount = 0;
 
     // ora posso confrontare i due array
     for (let i = 0; i < guessNumberArray.length; i++) {
-        if (numberUser[i] === guessNumberArray[i]) {
-            isSame = true;
-            break;
+        if (guessNumberArray.includes(numberUser[i])) {
+            sameNumberCount++; //aumento il contatore di numeri uguali
         }
     }
+    // ora scrivo il risultato in pagina
+    const result = document.getElementById('result');
+    resultText = sameNumberCount === guessNumberArray.length ? result.innerText = `BRAVO! Hai inserito tutti i numeri giusti!` : result.innerText = `PECCATO! I numeri giusti sono ${sameNumberCount} su 5`;
+
 }
 
-
+// la funzione verifyNumber la eseguo quando clicco sul bottone
+buttonSendNumber.addEventListener('click', function () {
+    verifyNumber();
+    // faccio sparire tutto ciò che non riguarda il risultato
+    buttonSendNumber.classList.add('d-none');
+    inputUser.classList.add('d-none');
+    valuation.classList.add('d-none');
+});
 
