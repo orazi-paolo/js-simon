@@ -5,6 +5,7 @@ const inputUser = document.getElementById('input-user');
 const description = document.getElementById('description');
 const buttonSendNumber = document.getElementById('button');
 const valuation = document.getElementById('valuation');
+const buttonReplay = document.getElementById('buttonReplay')
 
 
 // Creo una variabile per il tempo rimanente
@@ -112,6 +113,7 @@ buttonSendNumber.addEventListener('click', function () {
         buttonSendNumber.classList.add('d-none');
         inputUser.classList.add('d-none');
         valuation.classList.add('d-none');
+        buttonReplay.classList.remove('d-none');
     }
 });
 
@@ -126,3 +128,6 @@ function createInput(type, placeholder, number) {
     }
 }
 
+buttonReplay.addEventListener('click', function () {
+    window.location.reload();
+})
