@@ -38,3 +38,27 @@ const countdownInterval = setInterval(countdown, 1000);
 // creo un array dei numeri scritti in pagina
 const guessNumberArray = [16, 45, 53, 67, 91];
 
+// creo una funzione per la verifica dei numeri scritti dall'utente
+function verifyNumber() {
+    // recupero i numeri inseriti dall'utente
+    const numberUser = [
+        parseInt(document.getElementById('num1').value),
+        parseInt(document.getElementById('num2').value),
+        parseInt(document.getElementById('num3').value),
+        parseInt(document.getElementById('num4').value),
+        parseInt(document.getElementById('num5').value)
+    ]
+    // creo una variabile per vedere se sono uguali i numeri
+    const isSame = false;
+
+    // ora posso confrontare i due array
+    for (let i = 0; i < guessNumberArray.length; i++) {
+        if (numberUser[i] === guessNumberArray[i]) {
+            isSame = true;
+            break;
+        }
+    }
+}
+
+
+
