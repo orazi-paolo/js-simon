@@ -51,18 +51,17 @@ function verifyNumber() {
 
     // VERIFICO SE CI SONO DUPLICATI O NAN
     const numUser = []; //creo un array per i numeri
-    let hasDuplicates = false; // creo un booleano per capire se ci sono duplicati o meno
 
     // faccio un ciclo for per ripetere la validazione su tutti i numeri
     for (let i = 0; i < numberUser.length; i++) {
         const num = parseInt(numberUser[i]); //creo una variabile per il numero corrente
         if (isNaN(num)) {
             alert('Per favore inserisci solo numeri');
-            return;
+            return false;
         }
         if (numUser.includes(num)) {
             alert('Hai inserito due numeri uguali... Per andare avanti e verificare inserisci tutti i numeri diversi!');
-            return;
+            return false;
         }
         numUser.push(num); //infine dopo i controlli lo inserisco nell array
     }
@@ -78,14 +77,15 @@ function verifyNumber() {
     const result = document.getElementById('result');
     resultText = sameNumberCount === guessNumberArray.length ? result.innerText = `BRAVO! Hai inserito tutti i numeri giusti!` : result.innerText = `PECCATO! I numeri giusti sono ${sameNumberCount} su 5`;
 
+    return true;
 }
-
 // la funzione verifyNumber la eseguo quando clicco sul bottone
 buttonSendNumber.addEventListener('click', function () {
-    verifyNumber();
-    // faccio sparire tutto ciò che non riguarda il risultato
-    buttonSendNumber.classList.add('d-none');
-    inputUser.classList.add('d-none');
-    valuation.classList.add('d-none');
+    if (verifyNumber()) {
+        // faccio sparire tutto ciò che non riguarda il risultato
+        buttonSendNumber.classList.add('d-none');
+        inputUser.classList.add('d-none');
+        valuation.classList.add('d-none');
+    }
 });
 
