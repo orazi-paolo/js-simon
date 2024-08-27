@@ -26,6 +26,8 @@ function countdown() {
         description.classList.add('d-none');
         // rendo visibili gli input per il giocatore
         inputUser.classList.remove('d-none');
+        // genero 5 input
+        createInput('number', 'Inserisci un numero', 5);
         // e rendo infine visibili il bottone e la spiegazione di cosa fare
         buttonSendNumber.classList.remove('d-none');
         valuation.classList.remove('d-none');
@@ -56,11 +58,11 @@ function verifyNumber() {
     for (let i = 0; i < numberUser.length; i++) {
         const num = parseInt(numberUser[i]); //creo una variabile per il numero corrente
         if (isNaN(num)) {
-            alert('Per favore inserisci solo numeri');
+            alert('Per favore inserisci 5 numeri');
             return false;
         }
         if (numUser.includes(num)) {
-            alert('Hai inserito due numeri uguali... Per andare avanti e verificare inserisci tutti i numeri diversi!');
+            alert('Hai inserito numeri uguali... Per andare avanti e verificare inserisci tutti i numeri diversi!');
             return false;
         }
         numUser.push(num); //infine dopo i controlli lo inserisco nell array
@@ -88,4 +90,15 @@ buttonSendNumber.addEventListener('click', function () {
         valuation.classList.add('d-none');
     }
 });
+
+// creo una funzione per generare tot input
+function createInput(type, placeholder, number) {
+    for (let i = 1; i <= number; i++) {
+        const input = document.createElement('input');//creo l'input
+        input.id = `num${i}`; //assegno l'id
+        input.type = type; //assegno il type
+        input.placeholder = placeholder; //assegno il placeholder
+        inputUser.appendChild(input);
+    }
+}
 
