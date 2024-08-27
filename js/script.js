@@ -48,9 +48,26 @@ function verifyNumber() {
         parseInt(document.getElementById('num4').value),
         parseInt(document.getElementById('num5').value)
     ]
+
+    // VERIFICO SE CI SONO DUPLICATI O NAN
+    const numUser = []; //creo un array per i numeri
+    let hasDuplicates = false; // creo un booleano per capire se ci sono duplicati o meno
+
+    // faccio un ciclo for per ripetere la validazione su tutti i numeri
+    for (let i = 0; i < numberUser.length; i++) {
+        const num = parseInt(numberUser[i]); //creo una variabile per il numero corrente
+        if (isNaN(num)) {
+            alert('Per favore inserisci solo numeri');
+            return;
+        }
+        if (numUser.includes(num)) {
+            alert('Hai inserito due numeri uguali... Per andare avanti e verificare inserisci tutti i numeri diversi!');
+            return;
+        }
+        numUser.push(num); //infine dopo i controlli lo inserisco nell array
+    }
     // creo una variabile per vederi quanti numeri corrispondono
     let sameNumberCount = 0;
-
     // ora posso confrontare i due array
     for (let i = 0; i < guessNumberArray.length; i++) {
         if (guessNumberArray.includes(numberUser[i])) {
